@@ -1,8 +1,8 @@
-# How to build? (version is docker container related, not mbuild version)
-# docker build . -f Dockerfile  -t cmelab/mbuild:0.4.0
+# How to build? (optional) (version is docker container related, not mbuild version)
+# docker build . -f Dockerfile  -t cmelab/mbuild
 
 # How to run?
-# docker run --rm -itp 8888:8888 cmelab/mbuild:0.4.0 jupyter notebook --notebook-dir=/home/ --ip='*' --port=8888 --no-browser --allow-root
+# docker run --rm -itp 8888:8888 cmelab/mbuild:latest jupyter notebook --notebook-dir=/home/ --ip='*' --port=8888 --no-browser --allow-root
 
 FROM mmh42/docker-alpine-miniconda3
 
