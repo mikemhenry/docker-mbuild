@@ -7,18 +7,20 @@
 FROM mmh42/docker-alpine-miniconda3
 
 RUN conda install notebook -c conda-forge -y
-RUN pip install ipywidgets==7.0.0b0
-RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
+#RUN pip install ipywidgets==7.0.0b0
 
-RUN pip install numpy==1.13.1
-RUN pip install pytraj==2.0.2
-RUN pip install matplotlib==2.0.2
-RUN pip install moviepy==0.2.2.11
-RUN pip install imageio==1.6
-RUN pip install pillow==4.2.1
-RUN pip install nglview==1.0.a0
+#RUN pip install numpy==1.13.1
+#RUN pip install pytraj==2.0.2
+#RUN pip install matplotlib==2.0.2
+#RUN pip install moviepy==0.2.2.11
+#RUN pip install imageio==1.6
+#RUN pip install pillow==4.2.1
+#RUN pip install nglview==1.0.a0
+
+
+RUN conda install -c cmelab -c mosdef -c bioconda mbuild -c glotzer -c omnia -y
 RUN nglview install
 RUN nglview enable
-RUN conda install -c cmelab -c mosdef -c bioconda mbuild -c glotzer -c omnia -y
+RUN jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
 CMD jupyter notebook --ip=* --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root --NotebookApp.iopub_data_rate_limit=100000000
