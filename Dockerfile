@@ -16,9 +16,10 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.version=$VERSION \
       org.label-schema.schema-version="1.0"
 
-
+ADD ./spec-file.txt spec-file.txt
 RUN conda install -c cmelab -c mosdef -c bioconda mbuild notebook -c glotzer -c omnia -y && \
-    conda clean -itp -y && \
+#RUN conda install --file spec-file.txt -y && \ 
+    conda clean -tipsy && \
     nglview install && nglview enable && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
