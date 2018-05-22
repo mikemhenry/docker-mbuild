@@ -18,11 +18,11 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 ADD ./spec-file.txt spec-file.txt
 RUN apk update && \
-    apk add libxrender libXext && \
+    apk add libxrender libxext && \
     conda install -c cmelab -c mosdef -c bioconda -c glotzer -c omnia -c openbabel -y mbuild notebook gsd openbabel  && \
 #RUN conda install --file spec-file.txt -y && \ 
     conda clean -tipsy && \
     nglview install && nglview enable && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension
 
-CMD jupyter notebook --ip=* --port=8888 --no-browser --notebook-dir=/opt/app/data --allow-root --NotebookApp.iopub_data_rate_limit=100000000
+CMD jupyter notebook --port=8888 --no-browser --notebook-dir=/home/ --no-browser --allow-root --NotebookApp.iopub_data_rate_limit=100000000
