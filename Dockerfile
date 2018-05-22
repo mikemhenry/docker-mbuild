@@ -17,7 +17,9 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
       org.label-schema.schema-version="1.0"
 
 ADD ./spec-file.txt spec-file.txt
-RUN conda install -c cmelab -c mosdef -c bioconda -c glotzer -c omnia -y mbuild notebook gsd openbabel  && \
+RUN apk update && \
+    apk add libxrender libXext && \
+    conda install -c cmelab -c mosdef -c bioconda -c glotzer -c omnia -c openbabel -y mbuild notebook gsd openbabel  && \
 #RUN conda install --file spec-file.txt -y && \ 
     conda clean -tipsy && \
     nglview install && nglview enable && \
