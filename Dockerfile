@@ -18,7 +18,7 @@ LABEL org.label-schema.build-date=$BUILD_DATE \
 
 ADD ./spec-file.txt spec-file.txt
 RUN apk update && \
-    apk add libxrender libxext && \
+    apk add libxrender libxext cairo && \
     #conda install -c cmelab -c mosdef -c bioconda -c glotzer -c omnia -c openbabel -y mbuild notebook gsd openbabel  && \
     conda install --file spec-file.txt -y && \ 
     conda clean -tipsy && \
