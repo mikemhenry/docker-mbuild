@@ -24,7 +24,7 @@ RUN apk update && \
     conda clean -tipsy && \
     nglview install && nglview enable && \
     jupyter nbextension enable --py --sys-prefix widgetsnbextension && \
-    pip install --no-cache-dir --upgrade git+https://github.com/mikemhenry/foyer.git@f0c8d69087f9 git+https://github.com/mikemhenry/mbuild.git@ac3cea9e725a
+    pip install --no-cache-dir --upgrade git+https://github.com/mikemhenry/foyer.git@mike/docker git+https://github.com/mikemhenry/mbuild.git@mike/docker
 
 
 CMD jupyter notebook --port=8888 --ip='*' --no-browser --notebook-dir=/home/ --allow-root --NotebookApp.iopub_data_rate_limit=100000000
